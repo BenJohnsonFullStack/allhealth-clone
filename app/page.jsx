@@ -2,11 +2,23 @@
 
 import Image from "next/image";
 import { heroImageSlider } from "@/constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HeroContent } from "@/components";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (currentSlide === 5) {
+        setCurrentSlide(0);
+      } else {
+        setCurrentSlide(currentSlide + 1);
+      }
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
 
   return (
     <>
