@@ -186,7 +186,10 @@ export default function Home() {
             </div>
 
             <div className="mt-10 text-lg flex flex-col leading-loose">
-              <a href="https://allhealthchoice.com/privacy-statement/">
+              <a
+                href="https://allhealthchoice.com/privacy-statement/"
+                target="_blank"
+              >
                 Privacy Policy
               </a>
               <a href="#">Member Login</a>
