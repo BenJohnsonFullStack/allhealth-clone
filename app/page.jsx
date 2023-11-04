@@ -7,7 +7,7 @@ export default function Home() {
       <section>
         <header>
           <nav>
-            <div className="flex items-center">
+            <div className="flex items-center cursor-pointer">
               <div
                 id="info"
                 className="w-1/2 py-3 text-center bg-[#1b75bc] text-[#e6f0f8]"
@@ -16,7 +16,7 @@ export default function Home() {
               </div>
               <div
                 id="login"
-                className="w-1/2 py-3 text-center bg-[#808285] text-[#e6f0f8]"
+                className="w-1/2 py-3 text-center bg-[#808285] text-[#e6f0f8] cursor-pointer"
               >
                 MEMBER LOGIN
               </div>
@@ -154,18 +154,19 @@ export default function Home() {
       </main>
 
       <section>
-        <footer className="bg-[#1b75bc] mt-12">
-          <div className="py-12 px-6">
+        <footer className="bg-[#1b75bc] mt-12 text-center text-[#e6f0f8]">
+          <div className="py-12">
             <div>
               <Image
                 src="https://allhealthchoice.com/wp-content/uploads/2021/06/AllHealth.wewhiteb-small.png"
-                alt="all-health hoice logo in white"
+                alt="all-health choice logo in white"
                 width={300}
                 height={75}
+                className="block mx-auto mr-8"
               />
             </div>
 
-            <address className="text-left text-[#e6f0f8] not-italic mt-10 ml-3 leading-loose">
+            <address className="not-italic mt-10 ml-3 leading-loose">
               <a href="email:info@allhealthchoice.com">
                 info@allhealthchoice.com
               </a>
@@ -176,6 +177,23 @@ export default function Home() {
                 Toll Free: <a href="tel:8557130255">855.713.0255</a>
               </p>
             </address>
+
+            <div className="mt-10 text-lg flex flex-col leading-loose">
+              <a href="https://allhealthchoice.com/privacy-statement/">
+                Privacy Policy
+              </a>
+              <a href="#">Member Login</a>
+            </div>
+
+            <div className="mt-10">
+              <Image
+                src="https://allhealthchoice.com/wp-content/uploads/2021/06/hitrust-whitelogo.png"
+                alt="hi trust csf certified white logo"
+                width={115}
+                height={58.25}
+                className="block mx-auto"
+              />
+            </div>
           </div>
         </footer>
       </section>
