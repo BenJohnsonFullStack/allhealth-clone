@@ -29,13 +29,13 @@ export default function Home() {
             <div className="flex items-center cursor-pointer">
               <div
                 id="info"
-                className="w-1/2 py-3 text-center bg-[#1b75bc] text-[#e6f0f8]"
+                className="w-1/2 py-3 text-center bg-[#1b75bc] text-[#e6f0f8] hover:bg-blue-300 hover:text-blue-800"
               >
                 MORE INFO
               </div>
               <div
                 id="login"
-                className="w-1/2 py-3 text-center bg-[#808285] text-[#e6f0f8] cursor-pointer"
+                className="w-1/2 py-3 text-center bg-[#808285] text-[#e6f0f8] cursor-pointer hover:bg-gray-300 hover:text-gray-800"
               >
                 MEMBER LOGIN
               </div>
@@ -112,7 +112,7 @@ export default function Home() {
             <p>Schedule a demo to learn more</p>
             <a href="tel:8557130255">
               <p>
-                <strong>855-713-0255</strong>
+                <strong className="hover:text-blue-200">855-713-0255</strong>
               </p>
             </a>
           </div>
@@ -168,9 +168,10 @@ export default function Home() {
               />
             </div>
             <p className="text-[1.2rem] lg:text-[1.8rem] py-4 my-12 text-gray-800 lg:max-w-[40%]">
-              AllHealth CHOICE is a data driven population health management
-              company that evokes change behaviors and improves health outcomes
-              resulting in overall reduced healthcare expenses.
+              <strong>AllHealth CHOICE</strong> is a data driven population
+              health management company that evokes change behaviors and
+              improves health outcomes resulting in overall reduced healthcare
+              expenses.
             </p>
           </div>
 
@@ -187,9 +188,9 @@ export default function Home() {
 
             <div className="lg:max-w-[40%] mt-12">
               <p className="text-[1.2rem] pb-6 text-gray-800">
-                AllHealth CHOICE (AHC) values innovation and understands the
-                benefits that a data centric approach can bring to the care
-                management of total populations.{" "}
+                <strong>AllHealth CHOICE</strong> values innovation and
+                understands the benefits that a data centric approach can bring
+                to the care management of total populations.{" "}
               </p>
 
               <ul className="list-disc px-8 text-gray-800">
@@ -229,14 +230,23 @@ export default function Home() {
               </div>
 
               <address className="not-italic mt-10 ml-3 leading-loose">
-                <a href="email:info@allhealthchoice.com">
+                <a
+                  href="email:info@allhealthchoice.com"
+                  className="hover:text-blue-200"
+                >
                   info@allhealthchoice.com
                 </a>
                 <p>
-                  Office: <a href="tel:4049960086">404.996.0086</a>
+                  Office:{" "}
+                  <a href="tel:4049960086" className="hover:text-blue-200">
+                    404.996.0086
+                  </a>
                 </p>
                 <p>
-                  Toll Free: <a href="tel:8557130255">855.713.0255</a>
+                  Toll Free:{" "}
+                  <a href="tel:8557130255" className="hover:text-blue-200">
+                    855.713.0255
+                  </a>
                 </p>
               </address>
             </div>
@@ -245,10 +255,13 @@ export default function Home() {
               <a
                 href="https://allhealthchoice.com/privacy-statement/"
                 target="_blank"
+                className="hover:text-blue-200"
               >
                 Privacy Policy
               </a>
-              <a href="#">Member Login</a>
+              <a href="#" className="hover:text-blue-200">
+                Member Login
+              </a>
             </div>
 
             <div className="mt-10">

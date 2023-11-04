@@ -15,7 +15,7 @@ const HeroContent = ({ title }) => {
 
         <div
           id="hamburger"
-          className="p-1 w-[45px] h-[45px] bg-white shadow-lg cursor-pointer absolute top-[0px] right-[0px]"
+          className="p-1 w-[40px] h-[40px] hover:w-[45px] hover:h-[45px] bg-white shadow-lg cursor-pointer absolute top-[0px] right-[0px]"
         >
           <Image
             src="/menu-icon-square.svg"
@@ -25,7 +25,7 @@ const HeroContent = ({ title }) => {
           />
         </div>
 
-        <div className="w-[70%] lg:w-[45%] pb-12 md:pb-20 lg:pb-32 pt-24 lg:pt-40 mx-auto text-left text-white relative">
+        <div className="w-[65%] lg:w-[45%] pb-12 md:pb-20 lg:pb-32 pt-24 lg:pt-40 mx-auto text-left text-white relative">
           <h1 className="text-xl font-bold">{title}</h1>
         </div>
       </div>
