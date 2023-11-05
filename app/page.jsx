@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { heroImageSlider } from "@/constants";
 import { useEffect, useState } from "react";
-import { HeroContent } from "@/components";
+import { HeroContent, HeroHeading } from "@/components";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,9 +16,16 @@ export default function Home() {
       } else {
         setCurrentSlide(currentSlide + 1);
       }
-    }, 5000);
 
-    return () => clearTimeout(timer);
+      setIsFading(true);
+    }, 6000);
+
+    const animationTimer = setTimeout(() => setIsFading(false), 1500);
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(animationTimer);
+    };
   }, [currentSlide]);
 
   return (
@@ -29,79 +37,86 @@ export default function Home() {
             <div className="flex items-center cursor-pointer">
               <div
                 id="info"
-                className="w-1/2 py-3 text-center bg-[#1b75bc] text-[#e6f0f8] hover:bg-blue-300 hover:text-blue-800"
+                className="w-1/2 py-3 text-center bg-[#1b75bc] text-[#e6f0f8] hover:bg-blue-300 hover:text-blue-800 transition-color duration-200"
               >
                 MORE INFO
               </div>
               <div
                 id="login"
-                className="w-1/2 py-3 text-center bg-[#808285] text-[#e6f0f8] cursor-pointer hover:bg-gray-300 hover:text-gray-800"
+                className="w-1/2 py-3 text-center bg-[#808285] text-[#e6f0f8] cursor-pointer hover:bg-gray-300 hover:text-gray-800 transition-color duration-200"
               >
                 MEMBER LOGIN
               </div>
             </div>
+            <HeroContent title={heroImageSlider[currentSlide].title} />
           </nav>
 
-          <div id="hero-slides-container" className="hero-wrapper relative">
+          <div
+            id="hero-slides-container"
+            className={`hero-wrapper relative ${
+              isFading ? "animate-crossfade" : ""
+            }`}
+          >
             <div
               id="hero-slide-1"
               className={
-                currentSlide === 0 ? "bg-cover bg-center bg-slide-1" : "hidden"
+                currentSlide === 0
+                  ? "bg-cover bg-center animate-zoom z-[-1] overflow-hidden bg-slide-1 relative isolate after:absolute after:inset-0 after:bg-blue-600 after:opacity-70 after:z-[-1]"
+                  : "hidden"
               }
             >
-              {/* blue bg overlay */}
-              <div className="absolute inset-0 bg-opacity-70 bg-blue-600"></div>
-              <HeroContent title={heroImageSlider[currentSlide].title} />
+              <HeroHeading title={heroImageSlider[currentSlide].title} />
             </div>
+
             <div
               id="hero-slide-2"
               className={
-                currentSlide === 1 ? "bg-cover bg-center bg-slide-2" : "hidden"
+                currentSlide === 1
+                  ? "bg-cover bg-center animate-zoom z-[-1] overflow-hidden bg-slide-2 relative isolate after:absolute after:inset-0 after:bg-blue-600 after:opacity-70 after:z-[-1]"
+                  : "hidden"
               }
             >
-              {/* blue bg overlay */}
-              <div className="absolute inset-0 bg-opacity-70 bg-blue-600"></div>
-              <HeroContent title={heroImageSlider[currentSlide].title} />
+              <HeroHeading title={heroImageSlider[currentSlide].title} />
             </div>
             <div
               id="hero-slide-3"
               className={
-                currentSlide === 2 ? "bg-cover bg-center bg-slide-3" : "hidden"
+                currentSlide === 2
+                  ? "bg-cover bg-center animate-zoom z-[-1] overflow-hidden bg-slide-3 relative isolate after:absolute after:inset-0 after:bg-blue-600 after:opacity-70 after:z-[-1]"
+                  : "hidden"
               }
             >
-              {/* blue bg overlay */}
-              <div className="absolute inset-0 bg-opacity-70 bg-blue-600"></div>
-              <HeroContent title={heroImageSlider[currentSlide].title} />
+              <HeroHeading title={heroImageSlider[currentSlide].title} />
             </div>
             <div
               id="hero-slide-4"
               className={
-                currentSlide === 3 ? "bg-cover bg-center bg-slide-4" : "hidden"
+                currentSlide === 3
+                  ? "bg-cover bg-center animate-zoom z-[-1] overflow-hidden bg-slide-4 relative isolate after:absolute after:inset-0 after:bg-blue-600 after:opacity-70 after:z-[-1]"
+                  : "hidden"
               }
             >
-              {/* blue bg overlay */}
-              <div className="absolute inset-0 bg-opacity-70 bg-blue-600"></div>
-              <HeroContent title={heroImageSlider[currentSlide].title} />
+              <HeroHeading title={heroImageSlider[currentSlide].title} />
             </div>
             <div
               id="hero-slide-5"
               className={
-                currentSlide === 4 ? "bg-cover bg-center bg-slide-5" : "hidden"
+                currentSlide === 4
+                  ? "bg-cover bg-center animate-zoom z-[-1] overflow-hidden bg-slide-5 relative isolate after:absolute after:inset-0 after:bg-blue-600 after:opacity-70 after:z-[-1]"
+                  : "hidden"
               }
             >
-              {/* blue bg overlay */}
-              <div className="absolute inset-0 bg-opacity-70 bg-blue-600"></div>
-              <HeroContent title={heroImageSlider[currentSlide].title} />
+              <HeroHeading title={heroImageSlider[currentSlide].title} />
             </div>
             <div
               id="hero-slide-6"
               className={
-                currentSlide === 5 ? "bg-cover bg-center bg-slide-6" : "hidden"
+                currentSlide === 5
+                  ? "bg-cover bg-center animate-zoom z-[-1] overflow-hidden bg-slide-6 relative isolate after:absolute after:inset-0 after:bg-blue-600 after:opacity-70 after:z-[-1]"
+                  : "hidden"
               }
             >
-              {/* blue bg overlay */}
-              <div className="absolute inset-0 bg-opacity-70 bg-blue-600"></div>
-              <HeroContent title={heroImageSlider[currentSlide].title} />
+              <HeroHeading title={heroImageSlider[currentSlide].title} />
             </div>
           </div>
 
@@ -112,7 +127,9 @@ export default function Home() {
             <p>Schedule a demo to learn more</p>
             <a href="tel:8557130255">
               <p>
-                <strong className="hover:text-blue-200">855-713-0255</strong>
+                <strong className="hover:text-blue-200 transition-color duration-150">
+                  855-713-0255
+                </strong>
               </p>
             </a>
           </div>
@@ -232,19 +249,25 @@ export default function Home() {
               <address className="not-italic mt-10 ml-3 leading-loose">
                 <a
                   href="email:info@allhealthchoice.com"
-                  className="hover:text-blue-200"
+                  className="hover:text-blue-200 transition-color duration-150"
                 >
                   info@allhealthchoice.com
                 </a>
                 <p>
                   Office:{" "}
-                  <a href="tel:4049960086" className="hover:text-blue-200">
+                  <a
+                    href="tel:4049960086"
+                    className="hover:text-blue-200 transition-color duration-150"
+                  >
                     404.996.0086
                   </a>
                 </p>
                 <p>
                   Toll Free:{" "}
-                  <a href="tel:8557130255" className="hover:text-blue-200">
+                  <a
+                    href="tel:8557130255"
+                    className="hover:text-blue-200 transition-color duration-150"
+                  >
                     855.713.0255
                   </a>
                 </p>
@@ -255,11 +278,14 @@ export default function Home() {
               <a
                 href="https://allhealthchoice.com/privacy-statement/"
                 target="_blank"
-                className="hover:text-blue-200"
+                className="hover:text-blue-200 transition-color duration-150"
               >
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-blue-200">
+              <a
+                href="#"
+                className="hover:text-blue-200 transition-color duration-150"
+              >
                 Member Login
               </a>
             </div>

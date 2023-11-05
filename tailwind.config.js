@@ -17,6 +17,28 @@ module.exports = {
         "slide-5": `url(${heroImageSlider[4].url})`,
         "slide-6": `url(${heroImageSlider[5].url})`,
       },
+      keyframes: {
+        crossfade: {
+          "0%": {
+            opacity: 0.4,
+          },
+          "100%": {
+            opacity: 1,
+          },
+        },
+        zoom: {
+          "0%": {
+            transform: "scale(1) translateX(0px)",
+          },
+          "100%": {
+            transform: "scale(1.1) translateX(10px)",
+          },
+        },
+      },
+      animation: {
+        crossfade: "crossfade 1.5s ease-in-out",
+        zoom: "zoom 10s ease-in-out",
+      },
     },
   },
   plugins: [],
